@@ -1,7 +1,8 @@
 // src/pages/ContactUs/ContactUs.jsx
 import React, { useState } from 'react';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaLinkedin, FaTwitter, FaFacebook, FaArrowRight, FaCheck, FaHeadset, FaRocket, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaYoutube, FaInstagram, FaFacebook, FaArrowRight, FaCheck, FaHeadset, FaRocket, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
+import apiClient from '../services/apiClient';
 
 const ContactUs = () => {
   const [activeTab, setActiveTab] = useState('employer');
@@ -51,8 +52,8 @@ const ContactUs = () => {
 
     try {
       const endpoint = activeTab === 'employer' 
-        ? 'https://savvytiebackend.onrender.com/api/employers/register'
-        : 'https://savvytiebackend.onrender.com/api/candidates/register';
+        ? '/employers/register'
+        : '/candidates/register';
 
       const payload = activeTab === 'employer'
         ? {
@@ -70,17 +71,9 @@ const ContactUs = () => {
             experience: formData.experience
           };
 
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
+      const result = await apiClient.post(endpoint, payload);
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (result.success) {
         setSubmitStatus('success');
         // Reset form
         setFormData({
@@ -94,7 +87,7 @@ const ContactUs = () => {
         });
       } else {
         setSubmitStatus('error');
-        console.error('Registration failed:', data.message);
+        console.error('Registration failed:', result.message);
       }
     } catch (error) {
       setSubmitStatus('error');
@@ -195,12 +188,7 @@ const ContactUs = () => {
               We're here to help you find the perfect solution.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-400 transition-all duration-200 transform hover:scale-105 flex items-center">
-                Schedule a Call
-                <FaArrowRight className="ml-2 w-4 h-4" />
-              </button>
-            </div>
+      
           </div>
         </div>
       </section>
@@ -475,10 +463,10 @@ const ContactUs = () => {
                   <h4 className="font-semibold text-gray-900 mb-4">Follow Us</h4>
                   <div className="flex space-x-4">
                     <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-500 transition-colors duration-200">
-                      <FaLinkedin className="w-5 h-5 text-white" />
+                      <FaYoutube className="w-5 h-5 text-white" />
                     </a>
                     <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-500 transition-colors duration-200">
-                      <FaTwitter className="w-5 h-5 text-white" />
+                      <FaInstagram className="w-5 h-5 text-white" />
                     </a>
                     <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-500 transition-colors duration-200">
                       <FaFacebook className="w-5 h-5 text-white" />
@@ -486,14 +474,14 @@ const ContactUs = () => {
                   </div>
                 </div>
 
-                <div className="mt-8 p-6 bg-yellow-500 rounded-xl">
+                {/* <div className="mt-8 p-6 bg-yellow-500 rounded-xl">
                   <h4 className="font-semibold text-gray-900 mb-2">Emergency Support</h4>
                   <p className="text-gray-700 mb-4">Need immediate assistance?</p>
                   <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-200 flex items-center justify-center">
                     <FaHeadset className="mr-2 w-4 h-4" />
                     Call Emergency Line
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

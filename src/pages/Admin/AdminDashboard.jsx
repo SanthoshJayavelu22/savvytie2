@@ -7,18 +7,21 @@ import {
   ArrowTrendingUpIcon,
   ClockIcon,
   CheckCircleIcon,
-  XCircleIcon
+  XCircleIcon,
+  PhoneIcon
 } from '@heroicons/react/24/outline';
 import { useAuth } from '../../context/AuthContext';
 import AdminLayout from '../../components/AdminLayout';
+import apiClient from '../../services/apiClient';
 
 const AdminDashboard = () => {
-  const { getAuthHeader } = useAuth();
   const [stats, setStats] = useState({
     totalCandidates: 0,
     totalEmployers: 0,
-    recentCandidates: 0,
-    recentEmployers: 0
+    totalSchedules: 0,
+    recentCandidates: [],
+    recentEmployers: [],
+    recentSchedules: []
   });
   const [recentActivity, setRecentActivity] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -28,38 +31,47 @@ const AdminDashboard = () => {
     fetchDashboardData();
   }, []);
 
-  const fetchDashboardData = async () => {
+  // Auto-fetch every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchDashboardData(true);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const fetchDashboardData = async (isAutoFetch = false) => {
     try {
-      setLoading(true);
-      const response = await fetch('https://savvytiebackend.onrender.com/api/admin/dashboard', {
-        headers: {
-          'Authorization': getAuthHeader()
-        }
-      });
+      if (!isAutoFetch) setLoading(true);
+      const result = await apiClient.get('/admin/dashboard');
 
-      const data = await response.json();
-
-      if (data.success) {
-        setStats(data.data);
+      if (result.success) {
+        setStats(result.data);
         // Create recent activity from candidates and employers
         const activity = [
-          ...data.data.recentCandidates.map(c => ({
+          ...result.data.recentCandidates.map(c => ({
             type: 'candidate',
             name: c.name,
             email: c.email,
-            date: c.createdAt
+            date: c.registrationDate || c.createdAt
           })),
-          ...data.data.recentEmployers.map(e => ({
+          ...result.data.recentEmployers.map(e => ({
             type: 'employer',
             name: e.name,
             company: e.company,
-            date: e.createdAt
+            date: e.registrationDate || e.createdAt
+          })),
+          ...result.data.recentSchedules.map(s => ({
+            type: 'schedule',
+            name: s.name,
+            detail: s.businessType,
+            date: s.scheduledAt
           }))
-        ].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 5);
+        ].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 10);
         
         setRecentActivity(activity);
       } else {
-        setError(data.message);
+        setError(result.message);
       }
     } catch (err) {
       setError('Failed to fetch dashboard data');
@@ -105,6 +117,16 @@ const AdminDashboard = () => {
       bgColor: 'bg-yellow-500',
       lightBg: 'bg-yellow-50',
       subtitle: 'Last 7 days'
+    },
+    {
+      title: 'Scheduled Calls',
+      value: stats.totalSchedules,
+      icon: PhoneIcon,
+      color: 'orange',
+      bgColor: 'bg-orange-500',
+      lightBg: 'bg-orange-50',
+      link: '/admin/call-schedules',
+      subtitle: 'Total requests'
     }
   ];
 
@@ -197,20 +219,21 @@ const AdminDashboard = () => {
                   className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200"
                 >
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
-                    activity.type === 'candidate' ? 'bg-blue-100' : 'bg-green-100'
+                    activity.type === 'candidate' ? 'bg-blue-100' : 
+                    activity.type === 'employer' ? 'bg-green-100' : 'bg-orange-100'
                   }`}>
-                    {activity.type === 'candidate' ? (
-                      <UsersIcon className="w-5 h-5 text-blue-600" />
-                    ) : (
-                      <BriefcaseIcon className="w-5 h-5 text-green-600" />
-                    )}
+                    {activity.type === 'candidate' && <UsersIcon className="w-5 h-5 text-blue-600" />}
+                    {activity.type === 'employer' && <BriefcaseIcon className="w-5 h-5 text-green-600" />}
+                    {activity.type === 'schedule' && <PhoneIcon className="w-5 h-5 text-orange-600" />}
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-900">
-                      New {activity.type === 'candidate' ? 'Candidate' : 'Employer'} Registration
+                      {activity.type === 'candidate' && 'New Candidate Registration'}
+                      {activity.type === 'employer' && 'New Employer Registration'}
+                      {activity.type === 'schedule' && 'New Call Scheduled'}
                     </p>
                     <p className="text-sm text-gray-600 truncate">
-                      {activity.name} {activity.company && `(${activity.company})`}
+                      {activity.name} {activity.company ? `(${activity.company})` : activity.detail ? `(${activity.detail})` : ''}
                     </p>
                   </div>
                 </div>

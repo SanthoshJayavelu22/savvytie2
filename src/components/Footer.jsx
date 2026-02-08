@@ -76,17 +76,24 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
           <div className="text-gray-400 text-sm">
-            © 2025 SavvyTie. All rights reserved.
+            Savvy Tie © {new Date().getFullYear()}. All rights reserved.
           </div>
-          <p className='text-gray-400 text-sm'>Developed By: Santhosh Jayavelu</p>
-          <div className="flex space-x-8 mt-4 md:mt-0">
+          <p className='text-gray-400 text-sm'>Designed & Developed by <a href="https://www.linkedin.com/in/santhosh-jayavelu/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200">Santhosh Jayavelu</a></p>
+          <div className="flex flex-wrap justify-center gap-6">
+        
             <Link 
               to="/privacy-policy" 
               className="text-gray-400 hover:text-white text-sm transition-colors duration-200"
             >
               Privacy Policy
+            </Link>
+            <Link 
+              to="/cookie-policy" 
+              className="text-gray-400 hover:text-white text-sm transition-colors duration-200"
+            >
+              Cookie Policy
             </Link>
             <Link 
               to="/terms-of-service" 

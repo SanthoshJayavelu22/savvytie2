@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { EyeIcon, EyeSlashIcon, LockClosedIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
+import apiClient from '../../services/apiClient';
 
 const AdminLogin = () => {
   const [formData, setFormData] = useState({
@@ -35,17 +36,9 @@ const AdminLogin = () => {
     setError('');
 
     try {
-      const response = await fetch('https://savvytiebackend.onrender.com/api/admin/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const result = await apiClient.post('/admin/login', formData);
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (result.success) {
         // Store credentials for Basic Auth
         login({
           email: formData.email,
@@ -53,7 +46,7 @@ const AdminLogin = () => {
         });
         navigate('/admin/dashboard');
       } else {
-        setError(data.message || 'Login failed');
+        setError(result.message || 'Login failed');
       }
     } catch (err) {
       setError('Unable to connect to server. Please try again.');
@@ -69,25 +62,17 @@ const AdminLogin = () => {
     setResetMessage('');
 
     try {
-      const response = await fetch('https://savvytiebackend.onrender.com/api/admin/generate-otp', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: resetEmail }),
-      });
+      const result = await apiClient.post('/admin/generate-otp', { email: resetEmail });
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (result.success) {
         setResetStep('otp');
         setResetMessage('OTP sent to your email. Please check your inbox.');
         // In development, show OTP
-        if (data.otp) {
-          setResetMessage(`OTP sent! (Dev mode: ${data.otp})`);
+        if (result.data?.otp) {
+          setResetMessage(`OTP sent! (Dev mode: ${result.data.otp})`);
         }
       } else {
-        setResetMessage(data.message || 'Failed to send OTP');
+        setResetMessage(result.message || 'Failed to send OTP');
       }
     } catch (err) {
       setResetMessage('Unable to connect to server');
@@ -102,21 +87,13 @@ const AdminLogin = () => {
     setResetMessage('');
 
     try {
-      const response = await fetch('https://savvytiebackend.onrender.com/api/admin/reset-password', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: resetEmail,
-          otp: otp,
-          newPassword: newPassword
-        }),
+      const result = await apiClient.post('/admin/reset-password', {
+        email: resetEmail,
+        otp: otp,
+        newPassword: newPassword
       });
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (result.success) {
         setResetMessage('Password reset successful! You can now login.');
         setTimeout(() => {
           setShowForgotPassword(false);
@@ -126,7 +103,7 @@ const AdminLogin = () => {
           setNewPassword('');
         }, 2000);
       } else {
-        setResetMessage(data.message || 'Failed to reset password');
+        setResetMessage(result.message || 'Failed to reset password');
       }
     } catch (err) {
       setResetMessage('Unable to connect to server');

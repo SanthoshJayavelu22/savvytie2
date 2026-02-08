@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChevronDownIcon, ChevronUpIcon, CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
 import CallToAction from '../components/CallToAction';
 import Testimonials from '../components/Testimonials';
+import apiClient from '../services/apiClient';
 
 const Jobs = () => {
   const [formData, setFormData] = useState({
@@ -36,17 +37,9 @@ const Jobs = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('https://savvytiebackend.onrender.com/api/candidates/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const result = await apiClient.post('/candidates/register', formData);
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (result.success) {
         setSubmitStatus('success');
         // Reset form
         setFormData({
@@ -62,7 +55,7 @@ const Jobs = () => {
         }, 100);
       } else {
         setSubmitStatus('error');
-        console.error('Registration failed:', data.message);
+        console.error('Registration failed:', result.message);
       }
     } catch (error) {
       setSubmitStatus('error');

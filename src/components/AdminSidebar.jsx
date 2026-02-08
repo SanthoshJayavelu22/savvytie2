@@ -6,7 +6,8 @@ import {
   UsersIcon, 
   BriefcaseIcon, 
   ArrowRightOnRectangleIcon,
-  ChartBarIcon
+  ChartBarIcon,
+  PhoneIcon
 } from '@heroicons/react/24/outline';
 import { useAuth } from '../context/AuthContext';
 
@@ -35,6 +36,11 @@ const AdminSidebar = () => {
       name: 'Employers',
       path: '/admin/employers',
       icon: BriefcaseIcon
+    },
+    {
+      name: 'Call Schedules',
+      path: '/admin/call-schedules',
+      icon: PhoneIcon
     }
   ];
 

@@ -64,7 +64,7 @@ const OutsourcingBenefits = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16 md:mt-20 text-center">
+        {/* <div className="mt-16 md:mt-20 text-center">
           <div className="bg-yellow-400 rounded-xl md:rounded-2xl p-8 md:p-12 text-black">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               Ready to Experience the Difference?
@@ -81,7 +81,7 @@ const OutsourcingBenefits = () => {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

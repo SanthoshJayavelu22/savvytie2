@@ -1,5 +1,5 @@
 // src/components/CallToAction.jsx
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CallToAction = () => {
   return (
@@ -14,12 +14,18 @@ const CallToAction = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-          <button className="bg-yellow-400 text-black px-12 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200">
+          <Link
+            to="/hire-now"
+            className="bg-yellow-400 text-black px-12 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200"
+          >
             Start Hiring Today
-          </button>
-          <button className="border-2 border-white text-white px-12 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-black transition-colors duration-200">
+          </Link>
+          <Link
+            to="/schedule-call"
+            className="border-2 border-white text-white px-12 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-black transition-colors duration-200"
+          >
             Schedule a Call
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white">

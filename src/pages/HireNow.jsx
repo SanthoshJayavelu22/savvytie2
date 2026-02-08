@@ -5,6 +5,7 @@ import HowItWorks from '../components/HowItWorks';
 import Testimonials from '../components/Testimonials';
 import TalentVetting from '../components/TalentVetting';
 import { ChevronDownIcon, ChevronUpIcon, CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
+import apiClient from '../services/apiClient';
 
 const HireNow = () => {
   const [formData, setFormData] = useState({
@@ -38,17 +39,9 @@ const HireNow = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('https://savvytiebackend.onrender.com/api/employers/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const result = await apiClient.post('/employers/register', formData);
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (result.success) {
         setSubmitStatus('success');
         // Reset form
         setFormData({
@@ -64,7 +57,7 @@ const HireNow = () => {
         }, 100);
       } else {
         setSubmitStatus('error');
-        console.error('Registration failed:', data.message);
+        console.error('Registration failed:', result.message);
       }
     } catch (error) {
       setSubmitStatus('error');

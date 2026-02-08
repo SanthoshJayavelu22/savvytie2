@@ -1,4 +1,4 @@
 // src/config/api.js
-const API_BASE_URL = 'https://appsail-50036604868.development.catalystappsail.in';
+const API_BASE_URL = 'http://localhost:5000/api';
 
 export default API_BASE_URL;

@@ -1,246 +1,89 @@
+// src/pages/PrivacyPolicy.jsx
 import React from 'react';
 
 const PrivacyPolicy = () => {
+  const lastUpdated = "February 8, 2026";
+
   return (
-    <div className="pt-20 min-h-screen bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">
-            Privacy Policy
-          </h1>
-          <p className="text-lg text-gray-600">
-            Last Updated: November 2025
-          </p>
-        </div>
+    <div className="pt-32 pb-20 bg-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        <header className="mb-12 border-b border-gray-100 pb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">Privacy Policy</h1>
+          <p className="text-gray-500 font-medium">Last Updated: {lastUpdated}</p>
+        </header>
 
-        <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-          {/* Introduction */}
-          <div className="mb-12">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              At SavvyTie, we value your privacy and are committed to protecting your personal data.
-              This Privacy Policy explains how we collect, use, and safeguard the information you 
-              provide while using our website and services.
+        <div className="prose prose-lg max-w-none text-gray-700 space-y-8">
+          <section>
+            <h2 className="text-2xl font-bold text-black mb-4">1. Introduction</h2>
+            <p>
+              Welcome to Savvy Tie. We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice, or our practices with regards to your personal information, please contact us at support@savvytie.com.
             </p>
-          </div>
+            <p>
+              When you visit our website and use our services, you trust us with your personal information. We take your privacy very seriously. In this privacy notice, we seek to explain to you in the clearest way possible what information we collect, how we use it and what rights you have in relation to it.
+            </p>
+          </section>
 
-          {/* Sections */}
-          <div className="space-y-12">
-            {/* Section 1 */}
-            <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-6 flex items-center">
-                <span className="w--8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-black text-lg font-bold mr-4">
-                  1
-                </span>
-                Information We Collect
-              </h2>
-              <div className="ml-12">
-                <p className="text-gray-700 mb-4">
-                  We may collect the following types of information:
-                </p>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start">
-                    <span className="text-yellow-600 mr-3">•</span>
-                    <span><strong>Personal Information:</strong> Name, email address, phone number, and company details when you fill out forms or apply for jobs.</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-600 mr-3">•</span>
-                    <span><strong>Employment Information:</strong> Skills, resume, experience, and other professional data shared during applications.</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-600 mr-3">•</span>
-                    <span><strong>Usage Data:</strong> Browser type, IP address, pages visited, and time spent on our website (for analytics and optimization).</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-600 mr-3">•</span>
-                    <span><strong>Cookies:</strong> We use cookies to improve user experience and analyze website performance.</span>
-                  </li>
-                </ul>
-              </div>
-            </section>
+          <section>
+            <h2 className="text-2xl font-bold text-black mb-4">2. Information We Collect</h2>
+            <p>
+              We collect personal information that you voluntarily provide to us when you register on the Website, express an interest in obtaining information about us or our products and Services, or otherwise when you contact us.
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li><strong>Personal Data:</strong> Name, email address, phone number, and company details provided through our forms.</li>
+              <li><strong>Professional Details:</strong> Experience, profession, and business requirements when you apply for roles or hire talent.</li>
+              <li><strong>Log Data:</strong> We automatically collect certain information when you visit, use, or navigate the Website. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics.</li>
+            </ul>
+          </section>
 
-            {/* Section 2 */}
-            <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-6 flex items-center">
-                <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-black text-lg font-bold mr-4">
-                  2
-                </span>
-                How We Use Your Information
-              </h2>
-              <div className="ml-12">
-                <p className="text-gray-700 mb-4">
-                  We use your data to:
-                </p>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start">
-                    <span className="text-yellow-600 mr-3">•</span>
-                    <span>Connect employers with suitable virtual assistants.</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-600 mr-3">•</span>
-                    <span>Process job applications and hiring requests.</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-600 mr-3">•</span>
-                    <span>Communicate updates, inquiries, or promotional content (with your consent).</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-600 mr-3">•</span>
-                    <span>Improve website performance and user experience.</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-600 mr-3">•</span>
-                    <span>Maintain security and prevent fraudulent activities.</span>
-                  </li>
-                </ul>
-              </div>
-            </section>
+          <section>
+            <h2 className="text-2xl font-bold text-black mb-4">3. How We Use Your Information</h2>
+            <p>We use personal information collected via our Website for a variety of business purposes described below:</p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>To facilitate account creation and logon process.</li>
+              <li>To send administrative information to you.</li>
+              <li>To provide the services you requested (Staff matching, Recruitment).</li>
+              <li>To respond to user inquiries and offer support.</li>
+              <li>To improve our Website and user experience through analytics.</li>
+            </ul>
+          </section>
 
-            {/* Section 3 */}
-            <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-6 flex items-center">
-                <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-black text-lg font-bold mr-4">
-                  3
-                </span>
-                Data Sharing
-              </h2>
-              <div className="ml-12">
-                <p className="text-gray-700 mb-4">
-                  We do not sell or rent your personal data. However, we may share information with:
-                </p>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start">
-                    <span className="text-yellow-600 mr-3">•</span>
-                    <span>Employers seeking candidates (only relevant applicant data).</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-600 mr-3">•</span>
-                    <span>Service providers who help us operate the website and manage communications.</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-600 mr-3">•</span>
-                    <span>Legal authorities when required by law or to protect our legal rights.</span>
-                  </li>
-                </ul>
-              </div>
-            </section>
+          <section>
+            <h2 className="text-2xl font-bold text-black mb-4">4. Will Your Information Be Shared With Anyone?</h2>
+            <p>
+              We only share information with your consent, to comply with laws, to provide you with services, to protect your rights, or to fulfill business obligations. This includes sharing details between potential employers and candidates within our vetting process. We DO NOT sell your data to third-party marketers.
+            </p>
+          </section>
 
-            {/* Section 4 */}
-            <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-6 flex items-center">
-                <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-black text-lg font-bold mr-4">
-                  4
-                </span>
-                Data Retention
-              </h2>
-              <div className="ml-12">
-                <p className="text-gray-700">
-                  We retain your information for as long as necessary to fulfill the purposes stated above or as required by law. You may request deletion of your data by contacting us.
-                </p>
-              </div>
-            </section>
+          <section>
+            <h2 className="text-2xl font-bold text-black mb-4">5. Data Retention</h2>
+            <p>
+              We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy notice, unless a longer retention period is required or permitted by law.
+            </p>
+          </section>
 
-            {/* Section 5 */}
-            <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-6 flex items-center">
-                <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-black text-lg font-bold mr-4">
-                  5
-                </span>
-                Your Rights
-              </h2>
-              <div className="ml-12">
-                <p className="text-gray-700 mb-4">
-                  You have the right to:
-                </p>
-                <ul className="space-y-3 text-gray-700 mb-6">
-                  <li className="flex items-start">
-                    <span className="text-yellow-600 mr-3">•</span>
-                    <span>Access, update, or delete your personal data.</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-600 mr-3">•</span>
-                    <span>Withdraw consent for communications at any time.</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-yellow-600 mr-3">•</span>
-                    <span>Request a copy of the data we hold about you.</span>
-                  </li>
-                </ul>
-                <p className="text-gray-700">
-                  To exercise these rights, please email us at{' '}
-                  <a href="mailto:support@savvytie.com" className="text-yellow-600 hover:text-yellow-700 font-medium">
-                    support@savvytie.com
-                  </a>
-                </p>
-              </div>
-            </section>
+          <section>
+            <h2 className="text-2xl font-bold text-black mb-4">6. Security Measures</h2>
+            <p>
+              We have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure.
+            </p>
+          </section>
 
-            {/* Section 6 */}
-            <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-6 flex items-center">
-                <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-black text-lg font-bold mr-4">
-                  6
-                </span>
-                Data Security
-              </h2>
-              <div className="ml-12">
-                <p className="text-gray-700">
-                  We use industry-standard security measures to protect your information from unauthorized access, disclosure, or alteration. However, no online system is 100% secure, and users share data at their own risk.
-                </p>
-              </div>
-            </section>
+          <section>
+            <h2 className="text-2xl font-bold text-black mb-4">7. Your Rights</h2>
+            <p>
+              Depending on your location (e.g., UK or EU), you may have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability.
+            </p>
+          </section>
 
-            {/* Section 7 */}
-            <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-6 flex items-center">
-                <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-black text-lg font-bold mr-4">
-                  7
-                </span>
-                Third-Party Links
-              </h2>
-              <div className="ml-12">
-                <p className="text-gray-700">
-                  Our website may contain links to other websites. We are not responsible for their content or privacy practices.
-                </p>
-              </div>
-            </section>
-
-            {/* Section 8 */}
-            <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-6 flex items-center">
-                <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-black text-lg font-bold mr-4">
-                  8
-                </span>
-                Policy Updates
-              </h2>
-              <div className="ml-12">
-                <p className="text-gray-700">
-                  We may update this Privacy Policy periodically. The latest version will always be available on this page.
-                </p>
-              </div>
-            </section>
-
-            {/* Section 9 */}
-            <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-6 flex items-center">
-                <span className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-black text-lg font-bold mr-4">
-                  9
-                </span>
-                Contact Us
-              </h2>
-              <div className="ml-12">
-                <p className="text-gray-700 mb-4">
-                  If you have any questions or concerns about this Privacy Policy, please contact us at:
-                </p>
-                <div className="flex items-center text-gray-700">
-                  <span className="text-2xl mr-3">📧</span>
-                  <a href="mailto:support@savvytie.com" className="text-yellow-600 hover:text-yellow-700 font-medium text-lg">
-                    support@savvytie.com
-                  </a>
-                </div>
-              </div>
-            </section>
-          </div>
+          <section className="bg-gray-50 p-8 rounded-2xl border border-gray-100">
+            <h2 className="text-2xl font-bold text-black mb-4">8. Contact Us</h2>
+            <p>If you have questions or comments about this notice, you may email us at:</p>
+            <p className="font-bold text-yellow-600 mt-2">support@savvytie.com</p>
+            <p className="text-sm text-gray-500 mt-4 leading-relaxed">
+              Savvy Tie Ltd.<br />
+              London, United Kingdom
+            </p>
+          </section>
         </div>
       </div>
     </div>

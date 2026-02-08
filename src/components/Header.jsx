@@ -161,9 +161,12 @@ const Header = () => {
 
           {/* Get Started + Mobile Menu */}
           <div className="flex items-center space-x-4">
-            <button className="hidden md:block bg-yellow-400 text-black px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-yellow-500 transition-colors duration-200">
+            <Link 
+              to="/schedule-call"
+              className="hidden md:block bg-yellow-400 text-black px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-yellow-500 transition-colors duration-200"
+            >
               Get Started
-            </button>
+            </Link>
 
             {/* Mobile menu button */}
             <button

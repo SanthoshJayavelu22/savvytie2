@@ -1,6 +1,7 @@
 // src/components/Hero.jsx
 import React, { useState } from 'react';
 import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
+import apiClient from '../services/apiClient';
 
 const Hero = () => {
   const [activeTab, setActiveTab] = useState('employer');
@@ -23,8 +24,8 @@ const Hero = () => {
 
     try {
       const endpoint = activeTab === 'employer' 
-        ? 'https://savvytiebackend.onrender.com/api/employers/register'
-        : 'https://savvytiebackend.onrender.com/api/candidates/register';
+        ? '/employers/register'
+        : '/candidates/register';
 
       const payload = activeTab === 'employer'
         ? {
@@ -42,17 +43,9 @@ const Hero = () => {
             experience: formData.experience
           };
 
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
+      const result = await apiClient.post(endpoint, payload);
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (result.success) {
         setSubmitStatus('success');
         setFormData({
           name: '',
@@ -65,7 +58,7 @@ const Hero = () => {
         });
       } else {
         setSubmitStatus('error');
-        console.error('Registration failed:', data.message);
+        console.error('Registration failed:', result.message);
       }
     } catch (error) {
       setSubmitStatus('error');

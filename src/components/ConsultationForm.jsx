@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
+import apiClient from "../services/apiClient";
 
 const ConsultationForm = ({ serviceTitle }) => {
   const [activeTab, setActiveTab] = useState("employer");
@@ -45,8 +46,8 @@ const ConsultationForm = ({ serviceTitle }) => {
 
     try {
       const endpoint = activeTab === "employer" 
-        ? 'https://savvytiebackend.onrender.com/api/employers/register'
-        : 'https://savvytiebackend.onrender.com/api/candidates/register';
+        ? '/employers/register'
+        : '/candidates/register';
 
       const payload = activeTab === "employer"
         ? {
@@ -64,17 +65,9 @@ const ConsultationForm = ({ serviceTitle }) => {
             experience: formData.experience
           };
 
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
+      const result = await apiClient.post(endpoint, payload);
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (result.success) {
         setSubmitStatus('success');
         // Reset form
         setFormData({
@@ -88,7 +81,7 @@ const ConsultationForm = ({ serviceTitle }) => {
         });
       } else {
         setSubmitStatus('error');
-        console.error('Registration failed:', data.message);
+        console.error('Registration failed:', result.message);
       }
     } catch (error) {
       setSubmitStatus('error');
