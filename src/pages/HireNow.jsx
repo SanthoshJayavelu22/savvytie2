@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CallToAction from '../components/CallToAction';
 import HowItWorks from '../components/HowItWorks';
 import Testimonials from '../components/Testimonials';
+import TalentVetting from '../components/TalentVetting';
 import { ChevronDownIcon, ChevronUpIcon, CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
 
 const HireNow = () => {
@@ -37,7 +38,7 @@ const HireNow = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('https://appsail-50036604868.development.catalystappsail.in/api/employers/register', {
+      const response = await fetch('https://savvytiebackend.onrender.com/api/employers/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -245,6 +246,9 @@ const HireNow = () => {
           </div>
         </div>
       </section>
+
+      {/* Talent Vetting Section - High Impact Trust */}
+      <TalentVetting />
 
       {/* How It Works Component */}
       <HowItWorks />

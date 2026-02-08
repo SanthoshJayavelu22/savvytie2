@@ -8,6 +8,7 @@ import Services from '../components/Services';
 import TalentPool from '../components/TalentPool';
 import Testimonials from '../components/Testimonials';
 import CallToAction from '../components/CallToAction';
+import TalentVetting from '../components/TalentVetting';
 
 function Home() {
   return (
@@ -16,6 +17,7 @@ function Home() {
       <WhyChoose />
       <OutsourcingBenefits />
       <HowItWorks />
+      <TalentVetting />
       <Services />
       <TalentPool />
       <Testimonials />

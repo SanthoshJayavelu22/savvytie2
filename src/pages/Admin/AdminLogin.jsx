@@ -35,7 +35,7 @@ const AdminLogin = () => {
     setError('');
 
     try {
-      const response = await fetch('https://appsail-50036604868.development.catalystappsail.in/api/admin/login', {
+      const response = await fetch('https://savvytiebackend.onrender.com/api/admin/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ const AdminLogin = () => {
     setResetMessage('');
 
     try {
-      const response = await fetch('https://appsail-50036604868.development.catalystappsail.in/api/admin/generate-otp', {
+      const response = await fetch('https://savvytiebackend.onrender.com/api/admin/generate-otp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ const AdminLogin = () => {
     setResetMessage('');
 
     try {
-      const response = await fetch('https://appsail-50036604868.development.catalystappsail.in/api/admin/reset-password', {
+      const response = await fetch('https://savvytiebackend.onrender.com/api/admin/reset-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

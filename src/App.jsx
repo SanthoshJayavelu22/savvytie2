@@ -25,6 +25,7 @@ import HireNow from './pages/HireNow';
 import Jobs from './pages/Jobs';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
+import FAQ from './pages/FAQ';
 
 // Admin Pages
 import AdminLogin from './pages/Admin/AdminLogin';
@@ -169,6 +170,13 @@ function App() {
             <div className="min-h-screen bg-white">
               <Header />
               <TermsOfService />
+              <Footer />
+            </div>
+          } />
+          <Route path="/faq" element={
+            <div className="min-h-screen bg-white">
+              <Header />
+              <FAQ />
               <Footer />
             </div>
           } />

@@ -36,7 +36,7 @@ const Jobs = () => {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('https://appsail-50036604868.development.catalystappsail.in/api/candidates/register', {
+      const response = await fetch('https://savvytiebackend.onrender.com/api/candidates/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

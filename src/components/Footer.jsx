@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/images/logo.jpg';
+import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
@@ -16,6 +17,17 @@ const Footer = () => {
               Connecting UK and European businesses with elite virtual talent from South India and Asia. 
               Premium quality at sustainable costs.
             </p>
+            <div className="flex space-x-4 mt-6">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full text-gray-400 hover:text-white hover:bg-yellow-500 transition-all duration-200">
+                <FaFacebookF className="w-4 h-4" />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full text-gray-400 hover:text-white hover:bg-yellow-500 transition-all duration-200">
+                <FaInstagram className="w-4 h-4" />
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full text-gray-400 hover:text-white hover:bg-yellow-500 transition-all duration-200">
+                <FaYoutube className="w-4 h-4" />
+              </a>
+            </div>
           </div>
 
           <div>
@@ -30,15 +42,16 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-6 text-lg">Company</h4>
+            <h4 className="font-semibold mb-6 text-lg">Quick Links</h4>
             <ul className="space-y-3 text-sm text-gray-400">
               {[
                 { name: 'Home', path: '/' },
-                { name: 'About Us', path: '/about' },
+                { name: 'About Us', path: '/about-us' },
                 { name: 'Services', path: '/services' },
                 { name: 'Hire Now', path: '/hire-now' },
                 { name: 'Jobs', path: '/jobs' },
-                { name: 'Contact', path: '/contact' }
+                { name: 'Contact', path: '/contact-us' },
+                { name: 'FAQ', path: '/faq' }
               ].map((item) => (
                 <li key={item.name}>
                   <Link 

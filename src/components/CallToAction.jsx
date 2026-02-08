@@ -18,7 +18,7 @@ const CallToAction = () => {
             Start Hiring Today
           </button>
           <button className="border-2 border-white text-white px-12 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-black transition-colors duration-200">
-            Schedule Call
+            Schedule a Call
           </button>
         </div>
 

@@ -44,7 +44,7 @@ const CandidatesManagement = () => {
         ...(filterProfession && { profession: filterProfession })
       });
 
-      const response = await fetch(`https://appsail-50036604868.development.catalystappsail.in/api/admin/candidates?${params}`, {
+      const response = await fetch(`https://savvytiebackend.onrender.com/api/admin/candidates?${params}`, {
         headers: {
           'Authorization': getAuthHeader()
         }
@@ -76,7 +76,7 @@ const CandidatesManagement = () => {
     }
 
     try {
-      const response = await fetch(`https://appsail-50036604868.development.catalystappsail.in/api/admin/candidates/${id}`, {
+      const response = await fetch(`https://savvytiebackend.onrender.com/api/admin/candidates/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': getAuthHeader()

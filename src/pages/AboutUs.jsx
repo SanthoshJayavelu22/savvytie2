@@ -2,6 +2,7 @@
 import React from 'react';
 import CallToAction from '../components/CallToAction';
 import brinda from '../assets/images/Brinda Nicholson.png'
+import TalentVetting from '../components/TalentVetting';
 
 const AboutUs = () => {
 const teamMembers = [
@@ -188,7 +189,7 @@ const teamMembers = [
       {/* The Insight Section - Missing Content Added */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="order-2 lg:order-1">
               <img 
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -276,6 +277,9 @@ const teamMembers = [
           </div>
         </div>
       </section>
+
+      {/* Talent Vetting Section - High Impact Trust */}
+      <TalentVetting />
 
       {/* Core Values */}
       <section className="py-20 bg-gradient-to-br from-gray-900 to-black text-white">

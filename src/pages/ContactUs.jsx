@@ -51,8 +51,8 @@ const ContactUs = () => {
 
     try {
       const endpoint = activeTab === 'employer' 
-        ? 'https://appsail-50036604868.development.catalystappsail.in/api/employers/register'
-        : 'https://appsail-50036604868.development.catalystappsail.in/api/candidates/register';
+        ? 'https://savvytiebackend.onrender.com/api/employers/register'
+        : 'https://savvytiebackend.onrender.com/api/candidates/register';
 
       const payload = activeTab === 'employer'
         ? {

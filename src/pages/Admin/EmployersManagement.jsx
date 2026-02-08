@@ -44,7 +44,7 @@ const EmployersManagement = () => {
         ...(filterRole && { roleNeeded: filterRole })
       });
 
-      const response = await fetch(`https://appsail-50036604868.development.catalystappsail.in/api/admin/employers?${params}`, {
+      const response = await fetch(`https://savvytiebackend.onrender.com/api/admin/employers?${params}`, {
         headers: {
           'Authorization': getAuthHeader()
         }
@@ -76,7 +76,7 @@ const EmployersManagement = () => {
     }
 
     try {
-      const response = await fetch(`https://appsail-50036604868.development.catalystappsail.in/api/admin/employers/${id}`, {
+      const response = await fetch(`https://savvytiebackend.onrender.com/api/admin/employers/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': getAuthHeader()

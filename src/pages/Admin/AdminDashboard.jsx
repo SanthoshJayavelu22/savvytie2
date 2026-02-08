@@ -31,7 +31,7 @@ const AdminDashboard = () => {
   const fetchDashboardData = async () => {
     try {
       setLoading(true);
-      const response = await fetch('https://appsail-50036604868.development.catalystappsail.in/api/admin/dashboard', {
+      const response = await fetch('https://savvytiebackend.onrender.com/api/admin/dashboard', {
         headers: {
           'Authorization': getAuthHeader()
         }

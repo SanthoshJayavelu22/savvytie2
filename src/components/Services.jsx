@@ -7,67 +7,67 @@ const Services = () => {
     'Property Assistants': {
       roles: ['Property Management', 'Tenant Coordination', 'Listing Management', 'Administrative Support'],
       description: 'Professional assistants specialized in property management and real estate support',
-      averageCost: '£800-£1,800/month',
+      averageCost: '£300 to £999',
       image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
     },
     'Personal Assistants': {
       roles: ['Executive Support', 'Calendar Management', 'Travel Arrangements', 'Personal Errands'],
       description: 'Dedicated personal assistants for executive and personal support tasks',
-      averageCost: '£700-£1,600/month',
+      averageCost: '£300 to £999',
       image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
     },
     'Social Media Management': {
       roles: ['Content Creation', 'Community Management', 'Strategy Planning', 'Analytics Reporting'],
       description: 'Social media experts to grow your online presence and engagement',
-      averageCost: '£900-£2,000/month',
+      averageCost: '£300 to £999',
       image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
     },
     'Call Centre': {
       roles: ['Inbound Calls', 'Customer Service', 'Order Processing', 'Technical Support'],
       description: 'Professional call center agents for customer support and service',
-      averageCost: '£600-£1,400/month',
+      averageCost: '£300 to £999',
       image: 'https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
     },
     'Live Chat Support': {
       roles: ['Real-time Support', 'Customer Engagement', 'Sales Assistance', 'Technical Help'],
       description: 'Live chat specialists for instant customer support and engagement',
-      averageCost: '£650-£1,500/month',
+      averageCost: '£300 to £999',
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
     },
     'Telesales': {
       roles: ['Lead Generation', 'Sales Calls', 'Appointment Setting', 'Customer Follow-up'],
       description: 'Skilled telesales professionals to drive your sales and revenue',
-      averageCost: '£700-£1,800/month',
+      averageCost: '£300 to £999',
       image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
     },
     'Data Entry Services': {
       roles: ['Data Processing', 'Database Management', 'Record Keeping', 'Data Analysis'],
       description: 'Accurate data entry specialists for all your information management needs',
-      averageCost: '£500-£1,200/month',
+      averageCost: '£300 to £999',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
     },
     'Debt Collection': {
       roles: ['Account Recovery', 'Payment Follow-up', 'Customer Communication', 'Documentation'],
       description: 'Professional debt collection agents with excellent communication skills',
-      averageCost: '£800-£2,000/month',
+      averageCost: '£300 to £999',
       image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
     },
     'IT Outsourcing': {
       roles: ['Software Development', 'Technical Support', 'IT Maintenance', 'System Administration'],
       description: 'IT professionals for development, support, and technical solutions',
-      averageCost: '£1,200-£3,000/month',
+      averageCost: '£300 to £999',
       image: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
     },
     'Sales Assistants': {
       roles: ['Customer Assistance', 'Order Processing', 'Product Knowledge', 'Sales Support'],
       description: 'Sales assistants to support your sales team and customer interactions',
-      averageCost: '£600-£1,500/month',
+      averageCost: '£300 to £999',
       image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
     },
     'Legal Assistants': {
       roles: ['Document Preparation', 'Case Management', 'Legal Research', 'Client Communication', 'Court Filing'],
       description: 'Skilled legal assistants to support law firms and legal departments',
-      averageCost: '£900-£2,200/month',
+      averageCost: '£300 to £999',
       image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
     }
   };
