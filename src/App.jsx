@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollToTopButton from './components/ScrollToTopButton';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -50,6 +51,7 @@ function App() {
     <AuthProvider>
       <Router>
         <ScrollToTop />
+        <ScrollToTopButton />
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* ... public routes ... */}

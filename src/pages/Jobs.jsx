@@ -543,8 +543,11 @@ const Jobs = () => {
       {/* Final CTA Section */}
       <CallToAction 
         title="Ready to grow your career with international clients?"
-        buttonText="Join Now"
-        onButtonClick={() => document.getElementById('application-form').scrollIntoView({ behavior: 'smooth' })}
+        description="Join our network of virtual professionals and access premium opportunities with UK and European businesses."
+        primaryButtonText="Join Now"
+        primaryButtonClick={() => document.getElementById('application-form').scrollIntoView({ behavior: 'smooth' })}
+        secondaryButtonText="Learn More"
+        secondaryButtonLink="/about-us"
       />
     </div>
   );

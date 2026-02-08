@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaYoutube, FaInstagram, FaFacebook, FaArrowRight, FaCheck, FaHeadset, FaRocket, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { CheckCircleIcon, XCircleIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 import apiClient from '../services/apiClient';
 
 const ContactUs = () => {
@@ -462,13 +463,13 @@ const ContactUs = () => {
                 <div className="mt-8 pt-8 border-t border-gray-200">
                   <h4 className="font-semibold text-gray-900 mb-4">Follow Us</h4>
                   <div className="flex space-x-4">
-                    <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-500 transition-colors duration-200">
+                    <a href="https://youtube.com/@savvytie" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-500 transition-colors duration-200">
                       <FaYoutube className="w-5 h-5 text-white" />
                     </a>
-                    <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-500 transition-colors duration-200">
+                    <a href="https://instagram.com/savvytie" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-500 transition-colors duration-200">
                       <FaInstagram className="w-5 h-5 text-white" />
                     </a>
-                    <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-500 transition-colors duration-200">
+                    <a href="https://facebook.com/savvytie" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-500 transition-colors duration-200">
                       <FaFacebook className="w-5 h-5 text-white" />
                     </a>
                   </div>
@@ -560,14 +561,14 @@ const ContactUs = () => {
               <h3 className="text-2xl font-semibold text-gray-900 mb-4">Still have questions?</h3>
               <p className="text-gray-600 mb-6">Our team is here to help you get the answers you need.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-yellow-500 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-200 flex items-center justify-center">
+                <a href="tel:+15551234567" className="bg-yellow-500 text-gray-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-200 flex items-center justify-center">
                   <FaPhone className="mr-2 w-4 h-4" />
                   Call Us Now
-                </button>
-                <button className="border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:border-yellow-500 hover:text-yellow-600 transition-colors duration-200 flex items-center justify-center">
+                </a>
+                <a href="mailto:support@savvytie.com" className="border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:border-yellow-500 hover:text-yellow-600 transition-colors duration-200 flex items-center justify-center">
                   <FaEnvelope className="mr-2 w-4 h-4" />
                   Email Support
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -584,12 +585,12 @@ const ContactUs = () => {
             Join hundreds of businesses that have transformed their operations with Savvy Tie virtual assistants.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-400 transition-all duration-200 transform hover:scale-105">
+            <Link to="/schedule-call" className="bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-400 transition-all duration-200 transform hover:scale-105">
               Schedule a Free Consultation
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-200">
+            </Link>
+            <Link to="/services" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-200">
               View Our Services
-            </button>
+            </Link>
           </div>
         </div>
       </section>

@@ -384,10 +384,13 @@ const Services = () => {
 
                     {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <button className="bg-yellow-400 text-black px-8 py-4 rounded-xl font-semibold text-lg hover:bg-yellow-500 transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center">
+                      <Link 
+                        to="/hire-now"
+                        className="bg-yellow-400 text-black px-8 py-4 rounded-xl font-semibold text-lg hover:bg-yellow-500 transition-all duration-200 transform hover:scale-105 shadow-lg flex items-center justify-center"
+                      >
                         Hire {service.title}
                         <FaArrowRight className="ml-2" />
-                      </button>
+                      </Link>
                       <Link 
                         to={`/services/${service.id}`}
                         className="border-2 border-yellow-400 text-yellow-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-yellow-400 hover:text-black transition-all duration-200 transform hover:scale-105 flex items-center justify-center"
@@ -555,12 +558,18 @@ const Services = () => {
                 Our team is here to help you find the perfect solution for your business needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-200 text-lg">
+                <Link 
+                  to="/schedule-call"
+                  className="bg-black text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-800 transition-colors duration-200 text-lg flex items-center justify-center"
+                >
                   Schedule a Call
-                </button>
-                <button className="border-2 border-black text-black px-8 py-4 rounded-lg font-semibold hover:bg-black hover:text-white transition-colors duration-200 text-lg">
+                </Link>
+                <Link 
+                  to="/contact-us"
+                  className="border-2 border-black text-black px-8 py-4 rounded-lg font-semibold hover:bg-black hover:text-white transition-colors duration-200 text-lg flex items-center justify-center"
+                >
                   Contact Support
-                </button>
+                </Link>
               </div>
             </div>
           </div>

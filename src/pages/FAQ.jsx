@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronDown, FaChevronUp, FaPhone, FaEnvelope, FaSearch, FaRegQuestionCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -157,12 +158,12 @@ const FAQ = () => {
                </p>
                
                <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                 <a 
-                   href="/contact-us"
+                 <Link 
+                   to="/contact-us"
                    className="bg-yellow-400 text-black px-10 py-4 rounded-2xl font-bold text-lg hover:bg-white transition-all transform hover:scale-105"
                  >
                    Send an Email
-                 </a>
+                 </Link>
                  <a 
                    href="tel:+442012345678"
                    className="bg-white/10 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all border border-white/10"

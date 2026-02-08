@@ -33,9 +33,15 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-6 text-lg">Services</h4>
             <ul className="space-y-3 text-sm text-gray-400">
-              {['Accounting & Finance', 'Legal Services', 'Digital Marketing', 'Technology', 'Administrative'].map((service) => (
-                <li key={service}>
-                  <a href="#" className="hover:text-white transition-colors duration-200">{service}</a>
+              {[
+                { name: 'Accounting & Finance', path: '/services/property-assistants' }, // Mapping roughly or just /services
+                { name: 'Legal Services', path: '/services/legal-assistants' },
+                { name: 'Digital Marketing', path: '/services/social-media-management' },
+                { name: 'Technology', path: '/services/it-outsourcing' },
+                { name: 'Administrative', path: '/services/personal-assistants' }
+              ].map((service) => (
+                <li key={service.name}>
+                  <Link to={service.path} className="hover:text-white transition-colors duration-200">{service.name}</Link>
                 </li>
               ))}
             </ul>
