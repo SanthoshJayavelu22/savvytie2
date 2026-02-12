@@ -165,7 +165,7 @@ const FAQ = () => {
                    Send an Email
                  </Link>
                  <a 
-                   href="tel:+442012345678"
+                   href="tel:+442081295022"
                    className="bg-white/10 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all border border-white/10"
                  >
                    Call Support

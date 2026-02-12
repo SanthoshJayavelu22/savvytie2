@@ -67,7 +67,7 @@ const TermsOfService = () => {
           <section className="bg-gray-50 p-8 rounded-2xl border border-gray-100">
             <h2 className="text-2xl font-bold text-black mb-4">8. Contact Us</h2>
             <p>If you have any questions about these Terms of Service, please contact us at:</p>
-            <p className="font-bold text-yellow-600 mt-2">support@savvytie.com</p>
+            <p className="font-bold text-yellow-600 mt-2">sales@savvytie.com</p>
             <p className="text-sm text-gray-500 mt-4 leading-relaxed">
               Savvy Tie Ltd.<br />
               London, United Kingdom

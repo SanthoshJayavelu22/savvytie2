@@ -118,7 +118,7 @@ const Hero = () => {
             </h1>
             
             <p className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-6 md:mb-8 leading-relaxed">
-              Connect with pre-vetted professionals from South India & Asia. 60% cost savings without quality compromise.
+              Connect with pre-vetted professionals from India & Asia. 60% cost savings without quality compromise.
             </p>
             
             <div className="flex items-center space-x-6 md:space-x-12 mt-12 md:mt-16 pt-6 md:pt-8 border-t border-gray-200">

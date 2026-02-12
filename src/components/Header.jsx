@@ -1,7 +1,7 @@
 // src/components/Header.jsx
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from '../assets/images/logo.jpg';
+import logo from '../assets/images/logo.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -192,6 +192,73 @@ const Header = () => {
               </svg>
             </button>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'} bg-white border-t border-gray-100`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4">
+          <nav className="space-y-3">
+            <Link
+              to="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block font-semibold text-gray-800 ${isActive('/') ? 'text-yellow-500' : 'hover:text-yellow-500'}`}
+            >
+              Home
+            </Link>
+            <Link
+              to="/about-us"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block font-semibold text-gray-800 ${isActive('/about-us') ? 'text-yellow-500' : 'hover:text-yellow-500'}`}
+            >
+              About Us
+            </Link>
+            <div className="pt-2">
+              <div className="font-semibold text-gray-800 mb-2">Services</div>
+              <div className="grid grid-cols-2 gap-2">
+                {services.map((service) => (
+                  <Link
+                    key={service.path}
+                    to={service.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-sm text-gray-700 px-3 py-2 rounded hover:bg-gray-50"
+                  >
+                    {service.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <Link
+              to="/hire-now"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block font-semibold text-gray-800 ${isActive('/hire-now') ? 'text-yellow-500' : 'hover:text-yellow-500'}`}
+            >
+              Hire Now
+            </Link>
+            <Link
+              to="/jobs"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block font-semibold text-gray-800 ${isActive('/jobs') ? 'text-yellow-500' : 'hover:text-yellow-500'}`}
+            >
+              Jobs
+            </Link>
+            <Link
+              to="/contact-us"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`block font-semibold text-gray-800 ${isActive('/contact-us') ? 'text-yellow-500' : 'hover:text-yellow-500'}`}
+            >
+              Contact Us
+            </Link>
+            <div className="pt-3">
+              <Link
+                to="/schedule-call"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block bg-yellow-400 text-black text-center px-4 py-2 rounded font-semibold hover:bg-yellow-500"
+              >
+                Get Started
+              </Link>
+            </div>
+          </nav>
         </div>
       </div>
     </header>

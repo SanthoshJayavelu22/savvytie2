@@ -7,6 +7,7 @@ import ScrollToTop from './components/ScrollToTop';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import WhatsAppFloating from './components/WhatsAppFloating';
 
 // Lazy loading components
 const Home = lazy(() => import('./pages/Home'));
@@ -52,6 +53,7 @@ function App() {
       <Router>
         <ScrollToTop />
         <ScrollToTopButton />
+        <WhatsAppFloating />
         <Suspense fallback={<PageLoader />}>
           <Routes>
             {/* ... public routes ... */}

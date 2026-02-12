@@ -41,7 +41,7 @@ const TalentPool = () => {
             Global Talent Network
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Carefully selected professionals from premier educational institutions across South India and Asia
+            Carefully selected professionals from premier educational institutions across India and Asia
           </p>
         </div>
 
@@ -74,7 +74,7 @@ const TalentPool = () => {
         <div className="bg-gray-50 rounded-2xl p-12 border border-gray-200">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-3xl font-bold text-black mb-6">Why South Indian Talent Excels</h3>
+              <h3 className="text-3xl font-bold text-black mb-6">Why Indian Talent Excels</h3>
               <div className="space-y-4">
                 {[
                   "Graduates from IITs, IIMs, and premier universities",
@@ -95,12 +95,12 @@ const TalentPool = () => {
             <div className="relative">
               <img 
                 src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Professional South Indian team"
+                alt="Professional Indian team"
                 className="rounded-2xl shadow-lg"
               />
-              <div className="absolute -bottom-6 -right-6 bg-yellow-400 text-black p-6 rounded-2xl shadow-2xl">
+                <div className="absolute -bottom-6 -right-6 bg-yellow-400 text-black p-6 rounded-2xl shadow-2xl">
                 <div className="text-3xl font-bold">85%</div>
-                <div className="text-sm">From South India</div>
+                <div className="text-sm">From India</div>
               </div>
             </div>
           </div>

@@ -5,7 +5,7 @@ const WhyChoose = () => {
   const benefits = [
     {
       title: 'Reduce Costs by 60%',
-      description: 'Access premium talent from South India and Asia at significantly lower rates than local hires',
+      description: 'Access premium talent from India and Asia at significantly lower rates than local hires',
       image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
     },
     {

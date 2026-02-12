@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
           <section>
             <h2 className="text-2xl font-bold text-black mb-4">1. Introduction</h2>
             <p>
-              Welcome to Savvy Tie. We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice, or our practices with regards to your personal information, please contact us at support@savvytie.com.
+              Welcome to Savvy Tie. We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice, or our practices with regards to your personal information, please contact us at sales@savvytie.com.
             </p>
             <p>
               When you visit our website and use our services, you trust us with your personal information. We take your privacy very seriously. In this privacy notice, we seek to explain to you in the clearest way possible what information we collect, how we use it and what rights you have in relation to it.
@@ -78,7 +78,7 @@ const PrivacyPolicy = () => {
           <section className="bg-gray-50 p-8 rounded-2xl border border-gray-100">
             <h2 className="text-2xl font-bold text-black mb-4">8. Contact Us</h2>
             <p>If you have questions or comments about this notice, you may email us at:</p>
-            <p className="font-bold text-yellow-600 mt-2">support@savvytie.com</p>
+            <p className="font-bold text-yellow-600 mt-2">sales@savvytie.com</p>
             <p className="text-sm text-gray-500 mt-4 leading-relaxed">
               Savvy Tie Ltd.<br />
               London, United Kingdom

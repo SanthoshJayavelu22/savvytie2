@@ -1,7 +1,7 @@
 // src/components/Footer.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/images/logo.jpg';
+import logo from '../assets/images/logo-white.png';
 import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa6';
 
 const Footer = () => {
@@ -14,17 +14,17 @@ const Footer = () => {
               <img src={logo} alt="SavvyTie Logo" className="h-12 w-auto"/>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Connecting UK and European businesses with elite virtual talent from South India and Asia. 
+              Connecting UK and European businesses with elite virtual talent from India and Asia. 
               Premium quality at sustainable costs.
             </p>
             <div className="flex space-x-4 mt-6">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full text-gray-400 hover:text-white hover:bg-yellow-500 transition-all duration-200">
                 <FaFacebookF className="w-4 h-4" />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full text-gray-400 hover:text-white hover:bg-yellow-500 transition-all duration-200">
+              <a href="https://www.instagram.com/savvytie.co/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full text-gray-400 hover:text-white hover:bg-yellow-500 transition-all duration-200">
                 <FaInstagram className="w-4 h-4" />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full text-gray-400 hover:text-white hover:bg-yellow-500 transition-all duration-200">
+              <a href="https://www.youtube.com/@Savvy_Tie" target="_blank" rel="noopener noreferrer" className="bg-gray-800 p-2 rounded-full text-gray-400 hover:text-white hover:bg-yellow-500 transition-all duration-200">
                 <FaYoutube className="w-4 h-4" />
               </a>
             </div>
@@ -74,8 +74,8 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-6 text-lg">Contact</h4>
             <div className="space-y-3 text-sm text-gray-400">
-              <div>hello@savvytie.com</div>
-              <div>+44 20 1234 5678</div>
+              <div>sales@savvytie.com</div>
+              <div>+44 0208 129 5022</div>
               <div>London, United Kingdom</div>
               <div>Bangalore • Chennai • Hyderabad</div>
             </div>

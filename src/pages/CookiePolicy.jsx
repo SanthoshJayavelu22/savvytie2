@@ -80,7 +80,7 @@ const CookiePolicy = () => {
 
           <section className="bg-gray-50 p-8 rounded-2xl border border-gray-100">
             <h2 className="text-2xl font-bold text-black mb-4">6. More Information</h2>
-            <p>If you have any questions about our use of cookies or other technologies, please email us at <span className="font-bold text-yellow-600">support@savvytie.com</span>.</p>
+            <p>If you have any questions about our use of cookies or other technologies, please email us at <span className="font-bold text-yellow-600">sales@savvytie.com</span>.</p>
           </section>
         </div>
       </div>

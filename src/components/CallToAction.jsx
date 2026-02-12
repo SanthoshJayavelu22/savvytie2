@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const CallToAction = ({ 
   title = "Ready to Transform Your Team?", 
-  description = "Join 500+ forward-thinking businesses that are scaling efficiently with premium talent from South India and Asia. Experience enterprise-quality work at sustainable costs.",
+  description = "Join 500+ forward-thinking businesses that are scaling efficiently with premium talent from India and Asia. Experience enterprise-quality work at sustainable costs.",
   primaryButtonText = "Start Hiring Today",
   primaryButtonLink = "/hire-now",
   secondaryButtonText = "Schedule a Call",
