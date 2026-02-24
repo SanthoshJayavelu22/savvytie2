@@ -14,9 +14,54 @@ const FAQ = () => {
       answer: 'A Savvy Tie VA is a highly-vetted professional trained specifically to handle digital and administrative tasks for modern businesses. Unlike general freelancers, our assistants undergo a rigorous 5-step vetting process and are managed by our success team to ensure consistent, enterprise-grade quality.'
     },
     {
+      category: 'General',
+      question: 'What is a Virtual Assistant (VA)?',
+      answer: 'A Virtual Assistant is a remote professional who provides administrative, technical, or creative assistance to clients. At Savvy Tie, our VAs are highly skilled experts who seamlessly integrate into your team, helping you scale efficiently without the overhead costs of an in-house hire.'
+    },
+    {
+      category: 'Process',
+      question: 'How Do I Pay My Off-Shore VA?',
+      answer: 'We make the payment process incredibly simple. You don’t need to worry about the complexities of international payroll, currency conversions, or compliance. You simply pay Savvy Tie’s monthly invoice in GBP, just as you would any other UK service provider. We handle all international transfers, local taxes, compliance, and accurate salary payments to your VA.'
+    },
+    {
       category: 'Services',
-      question: 'What kind of tasks can my VA handle?',
-      answer: 'Our professionals are versatile digital specialists. They handle: \n• Marketing: SEO, lead funnels, social media coordination, and email campaigns.\n• Sales: CRM management, appointment setting, and sales deck preparation.\n• Operations: Email management, calendar organization, data entry, and research. If it’s a repeatable business process, we have a specialist for it.'
+      question: 'How Could Using Savvy Tie Help My Business?',
+      answer: 'Partnering with Savvy Tie allows you to access premium global talent while significantly reducing staffing costs. It frees up your core team to focus on strategic growth rather than routine tasks. Plus, with our fully managed service, you avoid the administrative burden of recruitment, HR, payroll, and compliance—we handle it all.'
+    },
+    {
+      category: 'General',
+      question: 'Why Hire VA’s from India and Philippines ?',
+      answer: 'India and the Philippines are the world’s leading hubs for offshore talent. Both countries offer a massive pool of highly educated professionals with excellent English proficiency, strong cultural alignment with Western businesses, and a deep understanding of modern software and business practices. They also provide significant cost savings without sacrificing quality.'
+    },
+    {
+      category: 'General',
+      question: 'Why Use Savvy Tie?',
+      answer: 'Unlike standard recruitment agencies or freelance marketplaces, Savvy Tie offers a fully managed, end-to-end service. We don’t just find you a VA; we rigourously vet them, manage all HR and payroll compliance, and provide ongoing support through a dedicated Client Success Manager. You get the benefits of a full-time employee with the flexibility and ease of a managed service.'
+    },
+    {
+      category: 'General',
+      question: 'Do you work with clients outside of the UK?',
+      answer: 'Absolutely! While we have a strong presence in the UK, we serve clients globally, including in Europe, North America, and Australia. Our VAs can adapt to various time zones and business requirements to ensure seamless collaboration, no matter where you are located.'
+    },
+    {
+      category: 'Process',
+      question: 'How long does it take to hire a VA?',
+      answer: 'Once you’ve had your initial consultation and we’ve defined your requirements, within 72 hours.'
+    },
+    {
+      category: 'Process',
+      question: 'Can I hire a part-time Savvy Tie VA?',
+      answer: 'Yes, you can! We offer flexible plans to suit your business needs, starting from 20 hours per week. Whether you need part-time support or a full-time dedicated professional, we have a solution that works for you.'
+    },
+    {
+      category: 'Process',
+      question: 'Can I set the working hours?',
+      answer: 'Yes, absolutely. Our VAs can align with your core business hours to ensure real-time collaboration. Whether you need them during UK business hours or specific overlapping times, we match you with a professional who fits your schedule.'
+    },
+    {
+      category: 'Process',
+      question: 'Do I need to provide training for my VA?',
+      answer: 'Our VAs arrive pre-equipped with high proficiency in standard tools (Slack, G-Suite, Trello, etc.). While you will need to brief them on your specific business workflows and brand voice, they are proactive learners designed to minimize your management overhead.'
     },
     {
       category: 'Security',
@@ -29,11 +74,6 @@ const FAQ = () => {
       answer: "We focus on building long-term partnerships but offer flexibility. Most of our plans are monthly. If you wish to stop your service, we simply require 30 days' notice, ensuring a smooth handback of all tasks and assets."
     },
     {
-      category: 'Process',
-      question: 'Do I need to provide training for my VA?',
-      answer: 'Our VAs arrive pre-equipped with high proficiency in standard tools (Slack, G-Suite, Trello, etc.). While you will need to brief them on your specific business workflows and brand voice, they are proactive learners designed to minimize your management overhead.'
-    },
-    {
       category: 'Logistics',
       question: 'How do we handle different time zones?',
       answer: 'We specifically match you with talent that can align with your core business hours—whether you are in London, Berlin, or New York. This ensures real-time collaboration and seamless communication during your working day.'
@@ -42,11 +82,6 @@ const FAQ = () => {
       category: 'Satisfaction',
       question: 'What happens if I’m not happy with my VA match?',
       answer: 'We strive for the perfect fit, but if for any reason the relationship isn’t working, our Client Success Team will facilitate additional training or provide a new candidate match at no extra setup cost. Your business continuity is our priority.'
-    },
-    {
-      category: 'General',
-      question: 'How quickly can I get started?',
-      answer: 'Once you’ve had your initial consultation and we’ve defined your requirements, we can typically match you with an elite professional within 48 to 72 hours.'
     }
   ];
 
@@ -56,7 +91,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-24">
+    <div className="min-h-screen bg-white pt-20">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-black py-24 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 z-0"></div>

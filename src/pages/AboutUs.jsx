@@ -155,7 +155,7 @@ const teamMembers = [
             </div>
 
             <div className="relative">
-              <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl p-8 text-center shadow-2xl transform hover:scale-105 transition-transform duration-300">
+              <div className="bg-black rounded-3xl p-8 text-center shadow-2xl transform hover:scale-105 transition-transform duration-300">
                 <div className="w-72 h-72 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-2xl">
                   <img 
                     src={brinda}
@@ -163,9 +163,9 @@ const teamMembers = [
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-black">Brinda Nicholson</h3>
-                <p className="text-yellow-800 font-medium">Founder & CEO</p>
-                <p className="text-yellow-700 text-sm mt-2">Pioneer in Global Outsourcing</p>
+                <h3 className="text-2xl font-bold text-white">Brinda Nicholson</h3>
+                <p className="text-white font-medium">Founder & CEO</p>
+                <p className="text-white text-sm mt-2">Pioneer in Global Outsourcing</p>
                 
                 {/* Social Links */}
                 <div className="flex justify-center space-x-4 mt-4">
@@ -239,7 +239,7 @@ const teamMembers = [
                   className="rounded-2xl shadow-2xl"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-yellow-400 text-black p-6 rounded-2xl shadow-2xl">
-                  <div className="text-3xl font-bold">60%</div>
+                  <div className="text-3xl font-bold">70%</div>
                   <div className="text-sm">Average Cost Savings</div>
                 </div>
               </div>

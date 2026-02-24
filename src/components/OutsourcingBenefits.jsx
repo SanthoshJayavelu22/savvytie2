@@ -10,8 +10,8 @@ const OutsourcingBenefits = () => {
     },
     {
       icon: '💰',
-      title: 'No Setup Fees',
-      description: 'Recruiting is completely free. No hidden costs or setup charges.'
+      title: 'No Recruitment Agency Fees',
+      description: 'Recruitment is Free — No 15–30% UK Agency Fees'
     },
     {
       icon: '🔄',
@@ -39,8 +39,9 @@ const OutsourcingBenefits = () => {
     <section className="py-16 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4 md:mb-6">
-            Experience the Power of Outsourcing the SavvyTie Way
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4 md:mb-6 leading-tight">
+            Experience the Power of Outsourcing <br />
+            the Savvy Tie Way
           </h2>
           <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto px-4">
             Flexible, transparent, and designed for modern businesses

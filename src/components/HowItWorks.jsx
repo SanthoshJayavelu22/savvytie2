@@ -12,7 +12,7 @@ const HowItWorks = () => {
     {
       step: '02',
       title: 'Get Curated Matches',
-      description: 'Receive 3-5 pre-vetted candidate profiles within 48 hours',
+      description: 'Receive 3-5 pre-vetted candidate profiles within 72 hours',
       image: 'https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
     },
     {
@@ -26,6 +26,12 @@ const HowItWorks = () => {
       title: 'Onboard & Scale',
       description: 'Seamless onboarding with full support for rapid integration',
       image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    },
+    {
+      step: '05',
+      title: 'Taxes, Payroll & Salaries',
+      description: 'We handle salaries so UK companies don’t have to.',
+      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
     }
   ];
 
@@ -70,10 +76,6 @@ const HowItWorks = () => {
               alt="Team collaboration"
               className="rounded-2xl shadow-2xl"
             />
-            <div className="absolute -bottom-6 -left-6 bg-black text-white p-6 rounded-2xl shadow-2xl">
-              <div className="text-3xl font-bold">48h</div>
-              <div className="text-sm">Average matching time</div>
-            </div>
           </div>
         </div>
       </div>

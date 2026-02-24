@@ -106,7 +106,7 @@ const Services = () => {
       ],
       benefits: [
         '24/7 customer support coverage',
-        '60% cost savings vs local call centers',
+        '70% cost savings vs local call centers',
         'Multilingual support available',
         'Scalable team based on demand'
       ]
@@ -211,7 +211,7 @@ const Services = () => {
       ],
       benefits: [
         'Access to top tech talent',
-        '60% cost savings',
+        '70% cost savings',
         '24/7 technical support',
         'Scalable IT resources'
       ]
@@ -252,7 +252,7 @@ const Services = () => {
         'Legal Database Management'
       ],
       benefits: [
-        'Reduce legal research time by 60%',
+        'Reduce legal research time by 70%',
         'Accurate document preparation',
         'Enhanced client service',
         'Cost-effective legal support'
@@ -263,11 +263,11 @@ const Services = () => {
   const faqs = [
     {
       question: "How quickly can I get started with a Savvy Tie assistant?",
-      answer: "Most clients are matched with their perfect assistant within 48 hours. The onboarding process typically takes 3-5 business days, and your assistant can start delivering value immediately after training."
+      answer: "Most clients are matched with their perfect assistant within 72 hours. The onboarding process typically takes 3-5 business days, and your assistant can start delivering value immediately after training."
     },
     {
       question: "What's the typical cost savings compared to hiring locally?",
-      answer: "Our clients save an average of 60% compared to local hires in the UK and Europe, while maintaining the same quality of work. This includes all costs - salary, equipment, software, and management overhead."
+      answer: "Our clients save an average of 70% compared to local hires in the UK and Europe, while maintaining the same quality of work. This includes all costs - salary, equipment, software, and management overhead."
     },
     {
       question: "How do you ensure the quality of your assistants?",
@@ -451,7 +451,7 @@ const Services = () => {
               <div className="text-gray-300">Happy Clients</div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-yellow-400 mb-2">60%</div>
+              <div className="text-4xl md:text-5xl font-bold text-yellow-400 mb-2">70%</div>
               <div className="text-gray-300">Cost Savings</div>
             </div>
             <div>
@@ -480,31 +480,26 @@ const Services = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Column - First 6 FAQs */}
-            <div className="space-y-4">
+            <div className="space-y-2">
               {leftFaqs.map((faq, index) => (
                 <div 
                   key={index} 
-                  className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden transition-all duration-200 hover:shadow-xl"
+                  className="bg-gray-100 border-b border-gray-200 overflow-hidden"
                 >
                   <button
-                    className="w-full px-6 py-6 text-left flex justify-between items-center focus:outline-none"
+                    className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-gray-200 transition-colors"
                     onClick={() => toggleFaq(index)}
                   >
-                    <h3 className="text-lg font-bold text-black pr-4">
+                    <h3 className="text-base font-semibold text-gray-700 pr-4">
                       {faq.question}
                     </h3>
-                    <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
-                      {openFaqIndex === index ? (
-                        <FaChevronUp className="w-4 h-4 text-yellow-600" />
-                      ) : (
-                        <FaChevronDown className="w-4 h-4 text-yellow-600" />
-                      )}
+                    <div className="flex-shrink-0 text-gray-500 font-bold ml-4">
+                      {openFaqIndex === index ? 'v' : '>'}
                     </div>
                   </button>
                   {openFaqIndex === index && (
-                    <div className="px-6 pb-6">
-                      <div className="w-12 h-1 bg-yellow-400 rounded-full mb-4"></div>
-                      <p className="text-gray-700 leading-relaxed">
+                    <div className="px-6 pb-4 bg-gray-100">
+                      <p className="text-gray-600 text-sm leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
@@ -514,31 +509,26 @@ const Services = () => {
             </div>
 
             {/* Right Column - Next 6 FAQs */}
-            <div className="space-y-4">
+            <div className="space-y-2">
               {rightFaqs.map((faq, index) => (
                 <div 
                   key={index + 6} 
-                  className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden transition-all duration-200 hover:shadow-xl"
+                  className="bg-gray-100 border-b border-gray-200 overflow-hidden"
                 >
                   <button
-                    className="w-full px-6 py-6 text-left flex justify-between items-center focus:outline-none"
+                    className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-gray-200 transition-colors"
                     onClick={() => toggleFaq(index + 6)}
                   >
-                    <h3 className="text-lg font-bold text-black pr-4">
+                    <h3 className="text-base font-semibold text-gray-700 pr-4">
                       {faq.question}
                     </h3>
-                    <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
-                      {openFaqIndex === index + 6 ? (
-                        <FaChevronUp className="w-4 h-4 text-yellow-600" />
-                      ) : (
-                        <FaChevronDown className="w-4 h-4 text-yellow-600" />
-                      )}
+                    <div className="flex-shrink-0 text-gray-500 font-bold ml-4">
+                      {openFaqIndex === index + 6 ? 'v' : '>'}
                     </div>
                   </button>
                   {openFaqIndex === index + 6 && (
-                    <div className="px-6 pb-6">
-                      <div className="w-12 h-1 bg-yellow-400 rounded-full mb-4"></div>
-                      <p className="text-gray-700 leading-relaxed">
+                    <div className="px-6 pb-4 bg-gray-100">
+                      <p className="text-gray-600 text-sm leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>

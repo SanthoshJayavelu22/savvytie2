@@ -63,11 +63,19 @@ const apiClient = {
   },
 
   post(endpoint, body, options = {}) {
-    return this.request(endpoint, { 
+    const isFormData = body instanceof FormData;
+    const config = { 
       ...options, 
       method: 'POST', 
-      body: JSON.stringify(body) 
-    });
+      body: isFormData ? body : JSON.stringify(body) 
+    };
+    
+    // If it's FormData, let the browser set the Content-Type header with the correct boundary
+    if (isFormData && config.headers) {
+      delete config.headers['Content-Type'];
+    }
+
+    return this.request(endpoint, config);
   },
 
   put(endpoint, body, options = {}) {

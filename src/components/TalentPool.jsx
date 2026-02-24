@@ -30,6 +30,13 @@ const TalentPool = () => {
       professionals: '290+',
       specialty: 'Finance & Admin',
       image: 'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    },
+    {
+      city: 'Manila',
+      country: 'Philippines',
+      professionals: '350+',
+      specialty: 'Customer Support & Admin',
+      image: 'https://images.unsplash.com/photo-1518457607834-6e8d80c183c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     }
   ];
 
@@ -41,11 +48,11 @@ const TalentPool = () => {
             Global Talent Network
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Carefully selected professionals from premier educational institutions across India and Asia
+            Carefully selected professionals from premier educational institutions across India, the Philippines, and Asia
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
           {locations.map((location, index) => (
             <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group hover:border-yellow-400 border-2 border-transparent">
               <div className="h-48 overflow-hidden">
@@ -92,14 +99,14 @@ const TalentPool = () => {
                 ))}
               </div>
             </div>
-            <div className="relative">
+            <div className="relative h-full">
               <img 
                 src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
                 alt="Professional Indian team"
-                className="rounded-2xl shadow-lg"
+                className="rounded-2xl shadow-lg w-full h-[300px] lg:h-[400px] object-cover"
               />
-                <div className="absolute -bottom-6 -right-6 bg-yellow-400 text-black p-6 rounded-2xl shadow-2xl">
-                <div className="text-3xl font-bold">85%</div>
+              <div className="absolute -bottom-6 -right-6 bg-yellow-400 text-black p-6 rounded-2xl shadow-2xl">
+                <div className="text-3xl font-bold">70%</div>
                 <div className="text-sm">From India</div>
               </div>
             </div>

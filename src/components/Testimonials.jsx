@@ -7,7 +7,7 @@ const Testimonials = () => {
       name: 'James Wilson',
       company: 'FinTech Solutions UK',
       role: 'CFO',
-      content: 'Our SavvyTie accountant from Bangalore has been exceptional. The quality of work is on par with UK CPAs, but at 60% of the cost. They seamlessly integrated with our team.',
+      content: 'Our SavvyTie accountant from Bangalore has been exceptional. The quality of work is on par with UK CPAs, but at 70% of the cost. They seamlessly integrated with our team.',
       savings: '£28,000',
       roleType: 'Senior Accountant',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
@@ -35,6 +35,23 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6">
+        {/* Stats Section */}
+        <div className="mb-16 md:mb-20 bg-white rounded-xl md:rounded-2xl p-8 md:p-12 shadow-lg border border-gray-200">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 text-center">
+            {[
+              { number: '£15M+', label: 'Client Savings' },
+              { number: '2,000+', label: 'Professionals' },
+              { number: '500+', label: 'Happy Clients' },
+              { number: '98%', label: 'Retention Rate' }
+            ].map((stat, index) => (
+              <div key={index}>
+                <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-2">{stat.number}</div>
+                <div className="text-gray-600 text-sm md:text-base font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
             Client Success Stories

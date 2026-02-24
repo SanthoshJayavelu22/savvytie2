@@ -10,7 +10,8 @@ const Jobs = () => {
     email: '',
     phone: '',
     profession: '',
-    experience: ''
+    experience: '',
+    cv: null
   });
 
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
@@ -22,11 +23,18 @@ const Jobs = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    if (e.target.name === 'cv') {
+      setFormData({
+        ...formData,
+        cv: e.target.files[0]
+      });
+    } else {
+      const { name, value } = e.target;
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+    }
     // Clear submit status when user starts typing again
     if (submitStatus) setSubmitStatus(null);
   };
@@ -37,7 +45,17 @@ const Jobs = () => {
     setSubmitStatus(null);
 
     try {
-      const result = await apiClient.post('/candidates/register', formData);
+      const payload = new FormData();
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('phone', formData.phone);
+      payload.append('profession', formData.profession);
+      payload.append('experience', formData.experience);
+      if (formData.cv) {
+        payload.append('cv', formData.cv);
+      }
+
+      const result = await apiClient.post('/candidates/register', payload);
 
       if (result.success) {
         setSubmitStatus('success');
@@ -47,7 +65,8 @@ const Jobs = () => {
           email: '',
           phone: '',
           profession: '',
-          experience: ''
+          experience: '',
+          cv: null
         });
         // Scroll to success message
         setTimeout(() => {
@@ -378,7 +397,7 @@ const Jobs = () => {
                 <CheckCircleIcon className="w-6 h-6 text-green-600 flex-shrink-0" />
                 <div>
                   <p className="text-green-800 font-semibold">Application Submitted Successfully!</p>
-                  <p className="text-green-600 text-sm">Thank you! Our team will contact you within 24-48 hours.</p>
+                  <p className="text-green-600 text-sm">Thank you! Our team will contact you within 48-72 hours.</p>
                 </div>
               </div>
             )}
@@ -465,6 +484,19 @@ const Jobs = () => {
                 />
               </div>
 
+              <div>
+                <label className="block text-black text-sm font-medium mb-2">Upload CV (Optional)</label>
+                <input
+                  type="file"
+                  name="cv"
+                  accept=".pdf,.doc,.docx"
+                  onChange={handleChange}
+                  disabled={loading}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all text-base disabled:bg-gray-100 disabled:cursor-not-allowed file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100"
+                />
+                <p className="mt-1 text-sm text-gray-500">PDF, DOC, DOCX up to 5MB</p>
+              </div>
+
               <button
                 type="submit"
                 disabled={loading}
@@ -484,7 +516,7 @@ const Jobs = () => {
               </button>
               
               <p className="text-gray-500 text-sm text-center">
-                By submitting, you agree to our terms. Our team will contact you within 24-48 hours.
+                By submitting, you agree to our terms. Our team will contact you within 48-72 hours.
               </p>
             </form>
           </div>
@@ -503,34 +535,30 @@ const Jobs = () => {
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-2">
             {faqItems.map((faq, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg"
+                className="bg-gray-100 border-b border-gray-200 overflow-hidden"
               >
                 <button
-                  className="w-full px-6 py-6 text-left flex items-center justify-between focus:outline-none"
+                  className="w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none hover:bg-gray-200 transition-colors"
                   onClick={() => toggleFaq(index)}
                 >
-                  <h3 className="text-lg font-semibold text-black pr-4">
+                  <h3 className="text-base font-semibold text-gray-700 pr-4">
                     {faq.question}
                   </h3>
-                  <div className="flex-shrink-0 ml-4">
-                    {openFaqIndex === index ? (
-                      <ChevronUpIcon className="w-5 h-5 text-gray-600" />
-                    ) : (
-                      <ChevronDownIcon className="w-5 h-5 text-gray-600" />
-                    )}
+                  <div className="flex-shrink-0 ml-4 font-bold text-gray-500">
+                    {openFaqIndex === index ? 'v' : '>'}
                   </div>
                 </button>
                 
                 <div 
-                  className={`px-6 pb-6 transition-all duration-300 ${
+                  className={`px-6 pb-4 bg-gray-100 transition-all duration-300 ${
                     openFaqIndex === index ? 'block' : 'hidden'
                   }`}
                 >
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>

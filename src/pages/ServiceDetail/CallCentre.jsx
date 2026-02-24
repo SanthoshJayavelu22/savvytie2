@@ -23,7 +23,7 @@ const CallCentre = () => {
       },
       {
         title: 'Significant Cost Savings',
-        description: 'Achieve 60% cost savings compared to local call centers while maintaining high-quality customer service standards.'
+        description: 'Achieve 70% cost savings compared to local call centers while maintaining high-quality customer service standards.'
       },
       {
         title: 'Scalable Operations',
@@ -41,7 +41,7 @@ const CallCentre = () => {
     benefits: [
       {
         title: 'Cost Effective',
-        description: 'Save 60% compared to local call centers while getting professional customer service and technical support.'
+        description: 'Save 70% compared to local call centers while getting professional customer service and technical support.'
       },
       {
         title: 'Multilingual Support',
@@ -263,19 +263,21 @@ const CallCentre = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">Frequently Asked Questions</h2>
             <p className="text-xl text-gray-600">Everything you need to know about {serviceData.title}</p>
           </div>
-          <div className="space-y-4">
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-2">
             {serviceData.faqs.map((faq, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl shadow-lg border border-gray-200 overflow-hidden transition-all duration-200 hover:shadow-xl">
-                <button className="w-full px-6 py-6 text-left flex justify-between items-center focus:outline-none" onClick={() => toggleFaq(index)}>
-                  <h3 className="text-lg font-bold text-black pr-4">{faq.question}</h3>
-                  <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center">
-                    {openFaqIndex === index ? <FaChevronUp className="w-4 h-4 text-yellow-600" /> : <FaChevronDown className="w-4 h-4 text-yellow-600" />}
+              <div key={index} className="bg-gray-100 border-b border-gray-200 overflow-hidden">
+                <button
+                  className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none hover:bg-gray-200 transition-colors"
+                  onClick={() => toggleFaq(index)}
+                >
+                  <h3 className="text-base font-semibold text-gray-700 pr-4">{faq.question}</h3>
+                  <div className="flex-shrink-0 text-gray-500 font-bold ml-4">
+                    {openFaqIndex === index ? 'v' : '>'}
                   </div>
                 </button>
                 {openFaqIndex === index && (
-                  <div className="px-6 pb-6">
-                    <div className="w-12 h-1 bg-yellow-400 rounded-full mb-4"></div>
-                    <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                  <div className="px-6 pb-4 bg-gray-100">
+                    <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
                   </div>
                 )}
               </div>

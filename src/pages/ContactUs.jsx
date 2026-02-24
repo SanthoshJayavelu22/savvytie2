@@ -15,7 +15,8 @@ const ContactUs = () => {
     company: '',
     roleNeeded: '',
     profession: '',
-    experience: ''
+    experience: '',
+    cv: null
   });
   const [loading, setLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
@@ -29,7 +30,8 @@ const ContactUs = () => {
       company: '', 
       roleNeeded: '',
       profession: '',
-      experience: ''
+      experience: '',
+      cv: null
     });
     setSubmitStatus(null);
   };
@@ -39,10 +41,17 @@ const ContactUs = () => {
   };
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    if (e.target.name === 'cv') {
+      setFormData({
+        ...formData,
+        cv: e.target.files[0]
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      });
+    }
     if (submitStatus) setSubmitStatus(null);
   };
 
@@ -56,21 +65,27 @@ const ContactUs = () => {
         ? '/employers/register'
         : '/candidates/register';
 
-      const payload = activeTab === 'employer'
-        ? {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            company: formData.company,
-            roleNeeded: formData.roleNeeded
-          }
-        : {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            profession: formData.profession,
-            experience: formData.experience
-          };
+      let payload;
+      
+      if (activeTab === 'employer') {
+        payload = {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          roleNeeded: formData.roleNeeded
+        };
+      } else {
+        payload = new FormData();
+        payload.append('name', formData.name);
+        payload.append('email', formData.email);
+        payload.append('phone', formData.phone);
+        payload.append('profession', formData.profession);
+        payload.append('experience', formData.experience);
+        if (formData.cv) {
+          payload.append('cv', formData.cv);
+        }
+      }
 
       const result = await apiClient.post(endpoint, payload);
 
@@ -84,7 +99,8 @@ const ContactUs = () => {
           company: '',
           roleNeeded: '',
           profession: '',
-          experience: ''
+          experience: '',
+          cv: null
         });
       } else {
         setSubmitStatus('error');
@@ -100,28 +116,28 @@ const ContactUs = () => {
 
   const contactDetails = [
     {
+      icon: <FaHeadset className="w-5 h-5" />,
+      title: 'Live Chat',
+      details: ['Available 24/7'],
+      description: 'Chat with our support team'
+    },
+    {
+      icon: <FaEnvelope className="w-5 h-5" />,
+      title: 'Email Us',
+      details: ['sales@savvytie.com'],
+      description: ''
+    },
+    {
       icon: <FaPhone className="w-5 h-5" />,
       title: 'Call Us',
       details: ['+44 0208 129 5022'],
       description: 'Mon-Fri from 8am to 6pm'
     },
     {
-      icon: <FaEnvelope className="w-5 h-5" />,
-      title: 'Email Us',
-      details: ['sales@savvytie.com'],
-      description: 'We reply within 2 hours'
-    },
-    {
-      icon: <FaMapMarkerAlt className="w-5 h-5" />,
-      title: 'Visit Us',
-      details: ['123 Business District', 'New York, NY 10001'],
-      description: 'Come say hello at our office'
-    },
-    {
       icon: <FaClock className="w-5 h-5" />,
       title: 'Office Hours',
       details: ['Monday - Friday: 9:00 - 18:00', 'Saturday: 10:00 - 14:00'],
-      description: 'Eastern Standard Time'
+      description: ''
     }
   ];
 
@@ -232,12 +248,25 @@ const ContactUs = () => {
                 </button>
               </div>
 
-              <h3 className="text-xl md:text-2xl font-bold text-black mb-2">
-                {activeTab === 'employer' ? 'Find Your Perfect Hire' : 'Join Our Talent Network'}
-              </h3>
-              <p className="text-gray-600 text-base mb-6">
-                {activeTab === 'employer' ? 'Get matched with top talent in 48 hours' : 'Access premium opportunities with UK companies'}
-              </p>
+              {activeTab === "employer" ? (
+                <div className="mb-6">
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-black tracking-tight mb-2">
+                    £4 - £8 / Hr Virtual Assistants
+                  </h3>
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    Outsource to talented Virtual Assistants in India, Asia, and other countries of your choosing.
+                  </p>
+                </div>
+              ) : (
+                <div className="mb-6">
+                  <h3 className="text-xl md:text-2xl font-bold text-black mb-2">
+                    Join Our Talent Network
+                  </h3>
+                  <p className="text-gray-600 text-sm md:text-base">
+                    Access premium opportunities with UK companies
+                  </p>
+                </div>
+              )}
 
               {/* Success Message */}
               {submitStatus === 'success' && (
@@ -309,13 +338,12 @@ const ContactUs = () => {
                     </div>
                     
                     <div>
-                      <label className="block text-black text-sm font-medium mb-2">Company Name *</label>
+                      <label className="block text-black text-sm font-medium mb-2">Company Name</label>
                       <input
                         type="text"
                         name="company"
                         value={formData.company}
                         onChange={handleChange}
-                        required
                         disabled={loading}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all text-base disabled:bg-gray-100 disabled:cursor-not-allowed"
                         placeholder="Your company name"
@@ -407,6 +435,18 @@ const ContactUs = () => {
                         disabled={loading}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all text-base disabled:bg-gray-100 disabled:cursor-not-allowed"
                         placeholder="e.g., 3 years, 5+ years, etc."
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-black text-sm font-medium mb-2">Upload CV</label>
+                      <input
+                        type="file"
+                        name="cv"
+                        onChange={handleChange}
+                        accept=".pdf,.doc,.docx"
+                        disabled={loading}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all text-base disabled:bg-gray-100 disabled:cursor-not-allowed"
                       />
                     </div>
                   </>
@@ -527,31 +567,33 @@ const ContactUs = () => {
             <p className="text-lg text-gray-600">Quick answers to common questions</p>
           </div>
           
-          <div className="space-y-4">
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-2">
             {faqs.map((faq, index) => (
               <div 
-                key={index} 
-                className="border border-gray-200 rounded-2xl overflow-hidden transition-all duration-200 hover:border-yellow-300"
+                key={index}
+                className="bg-gray-100 border-b border-gray-200 overflow-hidden"
               >
-                <button 
-                  className="w-full px-6 py-6 text-left flex justify-between items-center focus:outline-none"
+                <button
+                  className="w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none hover:bg-gray-200 transition-colors"
                   onClick={() => toggleFaq(index)}
                 >
-                  <h3 className="text-lg font-semibold text-gray-900 pr-4">{faq.question}</h3>
-                  <div className="flex-shrink-0 w-6 h-6 flex items-center justify-center text-yellow-600">
-                    {openFaqIndex === index ? (
-                      <FaChevronUp className="w-4 h-4" />
-                    ) : (
-                      <FaChevronDown className="w-4 h-4" />
-                    )}
+                  <h3 className="text-base font-semibold text-gray-700 pr-4">
+                    {faq.question}
+                  </h3>
+                  <div className="flex-shrink-0 ml-4 font-bold text-gray-500">
+                    {openFaqIndex === index ? 'v' : '>'}
                   </div>
                 </button>
-                {openFaqIndex === index && (
-                  <div className="px-6 pb-6">
-                    <div className="w-12 h-1 bg-yellow-500 rounded-full mb-4"></div>
-                    <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
-                  </div>
-                )}
+                
+                <div 
+                  className={`px-6 pb-4 bg-gray-100 transition-all duration-300 ${
+                    openFaqIndex === index ? 'block' : 'hidden'
+                  }`}
+                >
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

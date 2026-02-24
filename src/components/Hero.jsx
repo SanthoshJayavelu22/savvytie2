@@ -12,7 +12,8 @@ const Hero = () => {
     company: '',
     roleNeeded: '',
     profession: '',
-    experience: ''
+    experience: '',
+    cv: null
   });
   const [loading, setLoading] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -27,21 +28,26 @@ const Hero = () => {
         ? '/employers/register'
         : '/candidates/register';
 
-      const payload = activeTab === 'employer'
-        ? {
+      let payload;
+      if (activeTab === 'employer') {
+        payload = {
             name: formData.name,
             email: formData.email,
             phone: formData.phone,
             company: formData.company,
             roleNeeded: formData.roleNeeded
-          }
-        : {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            profession: formData.profession,
-            experience: formData.experience
           };
+      } else {
+        payload = new FormData();
+        payload.append('name', formData.name);
+        payload.append('email', formData.email);
+        payload.append('phone', formData.phone);
+        payload.append('profession', formData.profession);
+        payload.append('experience', formData.experience);
+        if (formData.cv) {
+          payload.append('cv', formData.cv);
+        }
+      }
 
       const result = await apiClient.post(endpoint, payload);
 
@@ -54,7 +60,8 @@ const Hero = () => {
           company: '',
           roleNeeded: '',
           profession: '',
-          experience: ''
+          experience: '',
+          cv: null
         });
       } else {
         setSubmitStatus('error');
@@ -69,10 +76,17 @@ const Hero = () => {
   };
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    if (e.target.name === 'cv') {
+      setFormData({
+        ...formData,
+        cv: e.target.files[0]
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      });
+    }
     if (submitStatus) setSubmitStatus(null);
   };
 
@@ -85,7 +99,8 @@ const Hero = () => {
       company: '',
       roleNeeded: '',
       profession: '',
-      experience: ''
+      experience: '',
+      cv: null
     });
     setSubmitStatus(null);
   };
@@ -118,16 +133,16 @@ const Hero = () => {
             </h1>
             
             <p className="text-lg md:text-xl lg:text-2xl text-gray-700 mb-6 md:mb-8 leading-relaxed">
-              Connect with pre-vetted professionals from India & Asia. 60% cost savings without quality compromise.
+              Connect with pre-vetted professionals from India & Asia. 70% cost savings without quality compromise.
             </p>
             
             <div className="flex items-center space-x-6 md:space-x-12 mt-12 md:mt-16 pt-6 md:pt-8 border-t border-gray-200">
               <div>
-                <div className="text-2xl md:text-3xl font-bold text-black">60%</div>
+                <div className="text-2xl md:text-3xl font-bold text-black">70%</div>
                 <div className="text-gray-600 text-xs md:text-sm mt-1">Cost Savings</div>
               </div>
               <div>
-                <div className="text-2xl md:text-3xl font-bold text-black">48h</div>
+                <div className="text-2xl md:text-3xl font-bold text-black">72h</div>
                 <div className="text-gray-600 text-xs md:text-sm mt-1">Average Match</div>
               </div>
               <div>
@@ -162,12 +177,25 @@ const Hero = () => {
               </button>
             </div>
             
-            <h3 className="text-xl md:text-2xl font-bold text-black mb-2">
-              {activeTab === 'employer' ? 'Find Your Perfect Hire' : 'Join Our Talent Network'}
-            </h3>
-            <p className="text-gray-600 text-sm md:text-base mb-6">
-              {activeTab === 'employer' ? 'Get matched with top talent in 48 hours' : 'Access premium opportunities with UK companies'}
-            </p>
+            {activeTab === 'employer' ? (
+              <div className="mb-6">
+                <h3 className="text-2xl md:text-3xl font-extrabold text-black tracking-tight mb-2">
+                  £4 - £8 / Hr Virtual Assistants
+                </h3>
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                  Outsource to talented Virtual Assistants in India, Philippines, and other countries of your choosing.
+                </p>
+              </div>
+            ) : (
+              <div className="mb-6">
+                <h3 className="text-xl md:text-2xl font-bold text-black mb-2">
+                  Join Our Talent Network
+                </h3>
+                <p className="text-gray-600 text-sm md:text-base">
+                  Access premium opportunities with UK companies
+                </p>
+              </div>
+            )}
 
             {/* Success Message */}
             {submitStatus === 'success' && (
@@ -239,13 +267,12 @@ const Hero = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-black text-sm font-medium mb-2">Company Name *</label>
+                    <label className="block text-black text-sm font-medium mb-2">Company Name</label>
                     <input
                       type="text"
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      required
                       disabled={loading}
                       className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all text-sm md:text-base disabled:bg-gray-100 disabled:cursor-not-allowed"
                       placeholder="Your company name"
@@ -336,6 +363,19 @@ const Hero = () => {
                       className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all text-sm md:text-base disabled:bg-gray-100 disabled:cursor-not-allowed"
                       placeholder="e.g., 3 years, 5+ years, etc."
                     />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-black text-sm font-medium mb-2">Upload CV (Optional)</label>
+                    <input
+                      type="file"
+                      name="cv"
+                      accept=".pdf,.doc,.docx"
+                      onChange={handleChange}
+                      disabled={loading}
+                      className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all text-sm md:text-base disabled:bg-gray-100 disabled:cursor-not-allowed file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100"
+                    />
+                    <p className="mt-1 text-xs text-gray-500">PDF, DOC, DOCX up to 5MB</p>
                   </div>
                 </>
               )}

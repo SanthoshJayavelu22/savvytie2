@@ -110,7 +110,7 @@ const HireNow = () => {
     {
       icon: '⚡',
       title: 'Quick Onboarding',
-      description: 'Get started within 48 hours of selecting your candidate'
+      description: 'Get started within 72 hours of selecting your candidate'
     }
   ];
 
@@ -128,7 +128,7 @@ const HireNow = () => {
   const faqItems = [
     {
       question: "How quickly can I start working with a virtual assistant?",
-      answer: "Most clients are matched with their ideal virtual assistant within 48 hours of completing the onboarding process. Once you submit your requirements, our team will immediately start the matching process and present you with suitable candidates within 24-48 hours."
+      answer: "Most clients are matched with their ideal virtual assistant within 72 hours of completing the onboarding process. Once you submit your requirements, our team will immediately start the matching process and present you with suitable candidates within 48-72 hours."
     },
     {
       question: "What's the hiring process like?",
@@ -370,14 +370,13 @@ const HireNow = () => {
                 
                 <div>
                   <label className="block text-black text-sm font-medium mb-2">
-                    Company Name *
+                    Company Name
                   </label>
                   <input
                     type="text"
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    required
                     disabled={loading}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all text-base disabled:bg-gray-100 disabled:cursor-not-allowed"
                     placeholder="Your company name"
@@ -439,34 +438,30 @@ const HireNow = () => {
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="grid md:grid-cols-2 gap-x-8 gap-y-2">
             {faqItems.map((faq, index) => (
               <div 
                 key={index}
-                className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-lg"
+                className="bg-gray-100 border-b border-gray-200 overflow-hidden"
               >
                 <button
-                  className="w-full px-6 py-6 text-left flex items-center justify-between focus:outline-none"
+                  className="w-full px-6 py-4 text-left flex items-center justify-between focus:outline-none hover:bg-gray-200 transition-colors"
                   onClick={() => toggleFaq(index)}
                 >
-                  <h3 className="text-lg font-semibold text-black pr-4">
+                  <h3 className="text-base font-semibold text-gray-700 pr-4">
                     {faq.question}
                   </h3>
-                  <div className="flex-shrink-0 ml-4">
-                    {openFaqIndex === index ? (
-                      <ChevronUpIcon className="w-5 h-5 text-gray-600" />
-                    ) : (
-                      <ChevronDownIcon className="w-5 h-5 text-gray-600" />
-                    )}
+                  <div className="flex-shrink-0 ml-4 font-bold text-gray-500">
+                    {openFaqIndex === index ? 'v' : '>'}
                   </div>
                 </button>
                 
                 <div 
-                  className={`px-6 pb-6 transition-all duration-300 ${
+                  className={`px-6 pb-4 bg-gray-100 transition-all duration-300 ${
                     openFaqIndex === index ? 'block' : 'hidden'
                   }`}
                 >
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 text-sm leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>

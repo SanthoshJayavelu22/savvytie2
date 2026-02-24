@@ -4,7 +4,7 @@ import React from 'react';
 const WhyChoose = () => {
   const benefits = [
     {
-      title: 'Reduce Costs by 60%',
+      title: 'Reduce Costs by 70%',
       description: 'Access premium talent from India and Asia at significantly lower rates than local hires',
       image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
     },
@@ -59,23 +59,6 @@ const WhyChoose = () => {
           ))}
         </div>
 
-        {/* Stats Section */}
-        <div className="mt-16 md:mt-20 bg-white rounded-xl md:rounded-2xl p-8 md:p-12 shadow-lg border border-gray-200">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 text-center">
-            {[
-              { number: '£15M+', label: 'Client Savings' },
-              { number: '2,000+', label: 'Professionals' },
-              { number: '500+', label: 'Happy Clients' },
-              { number: '98%', label: 'Retention Rate' }
-            ].map((stat, index) => (
-              <div key={index}>
-                <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-2">{stat.number}</div>
-                <div className="text-gray-600 text-sm md:text-base font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Cost Comparison Section */}
         <div className="mt-16 md:mt-20 bg-white rounded-xl md:rounded-2xl p-6 md:p-8 border border-gray-200">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -85,9 +68,9 @@ const WhyChoose = () => {
               </h3>
               <div className="space-y-4">
                 {[
-                  { role: 'Senior Accountant', uk: '£45,000', savvy: '£18,000', saving: '60%' },
-                  { role: 'Marketing Manager', uk: '£42,000', savvy: '£16,800', saving: '60%' },
-                  { role: 'Web Developer', uk: '£50,000', savvy: '£20,000', saving: '60%' }
+                  { role: 'Bookkeeper', uk: '40,000 UK', savvy: '12,000', saving: '70%' },
+                  { role: 'Personal Assistant', uk: '35,000 UK', savvy: '10,500', saving: '70%' },
+                  { role: 'Customer Service', uk: '30,000 UK', savvy: '9,000', saving: '70%' }
                 ].map((item, index) => (
                   <div key={index} className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-4 bg-gray-50 rounded-lg border border-gray-200 hover:border-yellow-400 transition-colors duration-200">
                     <div className="font-medium text-black mb-2 sm:mb-0">{item.role}</div>
@@ -104,9 +87,9 @@ const WhyChoose = () => {
             </div>
             <div className="bg-yellow-400 rounded-xl md:rounded-2xl p-8 text-black text-center h-full flex items-center justify-center">
               <div>
-                <div className="text-4xl md:text-5xl font-bold mb-2">60%</div>
-                <div className="text-lg md:text-xl font-semibold">Average Savings</div>
-                <div className="text-yellow-800 mt-4 text-sm md:text-base">Yearly cost reduction for our clients</div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">70%</div>
+                <div className="text-lg md:text-xl font-semibold">Yearly Full-Time Staffing Cost Savings</div>
+                {/* <div className="text-yellow-800 mt-4 text-sm md:text-base">Yearly cost reduction for our clients</div> */}
               </div>
             </div>
           </div>

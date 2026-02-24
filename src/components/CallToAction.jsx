@@ -46,7 +46,7 @@ const CallToAction = ({
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
           <div className="text-center">
-            <div className="text-3xl font-bold mb-2">60%</div>
+            <div className="text-3xl font-bold mb-2">70%</div>
             <div className="text-gray-300">Average Cost Savings</div>
           </div>
           <div className="text-center">
