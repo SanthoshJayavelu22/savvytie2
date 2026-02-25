@@ -7,9 +7,13 @@ const apiClient = {
     
     // Default headers
     const headers = {
-      'Content-Type': 'application/json',
       ...options.headers,
     };
+
+    // Only set Content-Type to JSON if it's not FormData
+    if (!(options.body instanceof FormData) && !headers['Content-Type']) {
+      headers['Content-Type'] = 'application/json';
+    }
 
     // Add Auth header if available in localStorage
     const storedAdmin = localStorage.getItem('admin');

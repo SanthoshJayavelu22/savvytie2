@@ -10,7 +10,6 @@ import {
   XCircleIcon,
   PhoneIcon
 } from '@heroicons/react/24/outline';
-import { useAuth } from '../../context/AuthContext';
 import AdminLayout from '../../components/AdminLayout';
 import apiClient from '../../services/apiClient';
 
@@ -67,7 +66,7 @@ const AdminDashboard = () => {
             detail: s.businessType,
             date: s.scheduledAt
           }))
-        ].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 10);
+        ].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 5);
         
         setRecentActivity(activity);
       } else {
